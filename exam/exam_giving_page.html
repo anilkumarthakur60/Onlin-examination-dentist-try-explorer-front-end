@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container  ">
+        <h4 style="color: green;"> (user_full_name ) is giving Exam</h4>
+        <form action=" exam_result_information.html" class="exam_container container">
+            <div class="row">
+                <div class="col-md-6 col-lg-9 col-sm-6 ">
+
+
+                    <h5 class="exam_question"> Question Title 1/50</h5>
+
+                    <hr>
+                    <div class="form-check pb-2">
+                        <h5 class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio">Option 1
+                        </h5>
+                    </div>
+                    <div class="form-check pb-2">
+                        <h5 class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio">Option 2
+                        </h5>
+                    </div>
+                    <div class="form-check pb-2 ">
+                        <h5 class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio">Option 3
+                        </h5>
+                    </div>
+                    <div class="form-check pb-4">
+                        <h5 class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio">Option 3
+                        </h5>
+                    </div>
+
+
+
+                    <button type="submit" class=" btn btn-info">SKIP</button>
+                    <button type="submit" class="btn btn-success">SUMBIT</button>
+                </div>
+                <div class="col-md-6 col-lg-3 col-sm-6 pt-2">
+                    <h5>
+                        Time Left
+                    </h5>
+                    <h5>
+                        <p id="times"></p>
+                    </h5>
+                    <h5> <a href="" class="btn btn-info"> Skipped Question [10] </a></h5>
+                    <h5 class="mb-3">Answered Question [10]</h5>
+                    <button type="submit" class="btn btn-primary ">Finish Exam</button>
+                </div>
+            </div>
+        </form>
+
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        var countDownDate = new Date().getTime() + 10800000;
+
+
+        var x = setInterval(function() {
+
+            var now = new Date().getTime();
+
+            var distance = countDownDate - now;
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("times").innerHTML = hours + "h " +
+                minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("times").innerHTML = ""; //expired section
+            }
+        }, 1000);
+
+        function startTimer(duration, display) {
+            var timer = duration,
+                minutes, seconds;
+            setInterval(function() {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function() {
+            var fiveMinutes = 60 * 5,
+                display = document.querySelector('#time');
+            startTimer(fiveMinutes, display);
+        };
+    </script>
+</body>
+
+</html>

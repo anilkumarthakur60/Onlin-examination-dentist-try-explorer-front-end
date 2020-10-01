@@ -5,10 +5,24 @@
   ===============================*/
 
 
+/* exam page css */
+
+.exam_container {
+    background-color: #d9edf7;
+    padding-bottom: 10px;
+}
+
+.exam_question {
+    border-bottom: 2px solid red;
+    width: fit-content;
+    padding: 10px;
+}
+
+
+/* end of exam page css */
+
+
 /* search css */
-
-
-/* new ond */
 
 .dropbutton {
     border: none;
